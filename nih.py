@@ -836,55 +836,55 @@ with gr.Blocks(title="Nih Cuy") as app:
                         api_name="train_preprocess",
                     )
         with gr.Group():
-    gr.Markdown(value=i18n("step2b: 使用CPU提取音高(如果模型带音高), 使用GPU提取特征(选择卡号)"))
-    with gr.Row():
-        with gr.Column():
-            gpus6 = gr.Textbox(
-                label=i18n("以-分隔输入使用的卡号, 例如   0-1-2   使用卡0和卡1和卡2"),
-                value=gpus,
-                interactive=True,
-                visible=F0GPUVisible,
-            )
-            gpu_info9 = gr.Textbox(
-                label=i18n("显卡信息"), value=gpu_info, visible=F0GPUVisible
-            )
-        with gr.Column():
-            f0method8 = gr.Radio(
-                label=i18n(
-                    "选择音高提取算法:输入歌声可用pm提速,高质量语音但CPU差可用dio提速,harvest质量更好但慢,rmvpe效果最好且微吃CPU/GPU"
-                ),
-                choices=["Harvest", "Rmvpe", "Rmvpe_gpu"],
-                value="Rmvpe_gpu",
-                interactive=True,
-            )
-            gpus_rmvpe = gr.Textbox(
-                label=i18n(
-                    "rmvpe卡号配置：以-分隔输入使用的不同进程卡号,例如0-0-1使用在卡0上跑2个进程并在卡1上跑1个进程"
-                ),
-                value="%s-%s" % (gpus, gpus),
-                interactive=True,
-                visible=F0GPUVisible,
-            )
-        but2 = gr.Button(i18n("特征提取"), variant="primary")
-        info2 = gr.Textbox(label=i18n("输出信息"), value="", max_lines=8)
-        f0method8.change(
-            fn=change_f0_method,
-            inputs=[f0method8],
-            outputs=[gpus_rmvpe],
-        )
-        but2.click(
-            extract_f0_feature,
-            [
-                gpus6,
-                np7,
-                f0method8,
-                if_f0_3,
-                exp_dir1,
-                version19,
-                gpus_rmvpe,
-            ],
-            [info2],
-            api_name="train_extract_f0_feature",
+                gr.Markdown(value=i18n("step2b: 使用CPU提取音高(如果模型带音高), 使用GPU提取特征(选择卡号)"))
+                with gr.Row():
+                    with gr.Column():
+                        gpus6 = gr.Textbox(
+                            label=i18n("以-分隔输入使用的卡号, 例如   0-1-2   使用卡0和卡1和卡2"),
+                            value=gpus,
+                            interactive=True,
+                            visible=F0GPUVisible,
+                        )
+                        gpu_info9 = gr.Textbox(
+                            label=i18n("显卡信息"), value=gpu_info, visible=F0GPUVisible
+                        )
+                    with gr.Column():
+                        f0method8 = gr.Radio(
+                            label=i18n(
+                                "选择音高提取算法:输入歌声可用pm提速,高质量语音但CPU差可用dio提速,harvest质量更好但慢,rmvpe效果最好且微吃CPU/GPU"
+                            ),
+                            choices=["pm", "harvest", "dio", "rmvpe", "rmvpe_gpu"],
+                            value="rmvpe_gpu",
+                            interactive=True,
+                        )
+                        gpus_rmvpe = gr.Textbox(
+                            label=i18n(
+                                "rmvpe卡号配置：以-分隔输入使用的不同进程卡号,例如0-0-1使用在卡0上跑2个进程并在卡1上跑1个进程"
+                            ),
+                            value="%s-%s" % (gpus, gpus),
+                            interactive=True,
+                            visible=F0GPUVisible,
+                        )
+                    but2 = gr.Button(i18n("特征提取"), variant="primary")
+                    info2 = gr.Textbox(label=i18n("输出信息"), value="", max_lines=8)
+                    f0method8.change(
+                        fn=change_f0_method,
+                        inputs=[f0method8],
+                        outputs=[gpus_rmvpe],
+                    )
+                    but2.click(
+                        extract_f0_feature,
+                        [
+                            gpus6,
+                            np7,
+                            f0method8,
+                            if_f0_3,
+                            exp_dir1,
+                            version19,
+                            gpus_rmvpe,
+                        ],
+                        [info2],
+                        api_name="train_extract_f0_feature",
         )
 
 # Tambahkan kode CSS di luar blok dengan elemen-elemen UI
