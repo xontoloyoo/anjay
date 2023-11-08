@@ -811,7 +811,32 @@ with gr.Blocks(title="Nih Cuy") as app:
                     value=int(np.ceil(config.n_cpu / 1.5)),
                     interactive=True,
                 )
-        
+                    with gr.Group():  # 暂时单人的, 后面支持最多4人的#数据处理
+                gr.Markdown(
+                    value=i18n(
+                        "step2a: 自动遍历训练文件夹下所有可解码成音频的文件并进行切片归一化, 在实验目录下生成2个wav文件夹; 暂时只支持单人训练. "
+                    )
+                )
+                with gr.Row():
+                    trainset_dir4 = gr.Textbox(
+                        label=i18n("输入训练文件夹路径"), value="E:\\语音音频+标注\\米津玄师\\src"
+                    )
+                    spk_id5 = gr.Slider(
+                        minimum=0,
+                        maximum=4,
+                        step=1,
+                        label=i18n("请指定说话人id"),
+                        value=0,
+                        interactive=True,
+                    )
+                    but1 = gr.Button(i18n("处理数据"), variant="primary")
+                    info1 = gr.Textbox(label=i18n("输出信息"), value="")
+                    but1.click(
+                        preprocess_dataset,
+                        [trainset_dir4, exp_dir1, sr2, np7],
+                        [info1],
+                        api_name="train_preprocess",
+                    )    
     if config.iscolab:
         app.queue(concurrency_count=511, max_size=1022).launch(share=True)
     else:
