@@ -790,20 +790,20 @@ with gr.Blocks(title="Nih Cuy") as app:
                     value="40k",
                     interactive=True,
                 )
-                if_f0_3 = gr.Radio(
+            if_f0_3 = gr.Radio(
                     label=i18n("模型是否带音高指导(唱歌一定要, 语音可以不要)"),
                     choices=[True, False],
                     value=True,
                     interactive=True,
                 )
-                version19 = gr.Radio(
+            version19 = gr.Radio(
                     label=i18n("版本"),
                     choices=["v1", "v2"],
                     value="v2",
                     interactive=True,
                     visible=True,
                 )
-                np7 = gr.Slider(
+            np7 = gr.Slider(
                     minimum=0,
                     maximum=config.n_cpu,
                     step=1,
@@ -817,7 +817,7 @@ with gr.Blocks(title="Nih Cuy") as app:
                         "step2a: 自动遍历训练文件夹下所有可解码成音频的文件并进行切片归一化, 在实验目录下生成2个wav文件夹; 暂时只支持单人训练. "
                     )
                 )
-                with gr.Row():
+            with gr.Row():
                     trainset_dir4 = gr.Textbox(
                         label=i18n("输入训练文件夹路径"), value="E:\\语音音频+标注\\米津玄师\\src"
                     )
