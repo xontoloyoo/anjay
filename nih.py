@@ -839,7 +839,7 @@ with gr.Blocks(title="Nih Cuy") as app:
                     )
         with gr.Group():
             gr.Markdown(value=i18n("step2b: 使用CPU提取音高(如果模型带音高), 使用GPU提取特征(选择卡号)"))
-                    with gr.Column():
+                with gr.Column():
                         gpus6 = gr.Textbox(
                             label=i18n("以-分隔输入使用的卡号, 例如   0-1-2   使用卡0和卡1和卡2"),
                             value=gpus,
