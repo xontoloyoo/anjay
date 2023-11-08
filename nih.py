@@ -784,7 +784,7 @@ with gr.Blocks(title="Nih Cuy") as app:
         )
         with gr.Row():
             exp_dir1 = gr.Textbox(label=i18n("输入实验名"), value="mi-test")
-                sr2 = gr.Radio(
+            sr2 = gr.Radio(
                     label=i18n("目标采样率"),
                     choices=["40k", "48k"],
                     value="40k",
