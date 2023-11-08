@@ -767,7 +767,7 @@ def change_f0_method(f0method8):
         visible = False
     return {"visible": visible, "__type__": "update"}
 
-custom_theme = Theme(
+custom_theme = gr.Theme(
     input_background="white",
     input_text="black",
     output_text="black",
