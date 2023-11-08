@@ -865,7 +865,7 @@ with gr.Blocks(title="Nih Cuy") as app:
                             interactive=True,
                             visible=F0GPUVisible,
                         )
-                    but2 = gr.Button(i18n("特征提取"), variant="primary")
+                    but2 = gr.Button(i18n("特征提取"), variant="primary", css="background-color: blue;")
                     info2 = gr.Textbox(label=i18n("输出信息"), value="", max_lines=8)
                     f0method8.change(
                         fn=change_f0_method,
@@ -886,9 +886,6 @@ with gr.Blocks(title="Nih Cuy") as app:
                         [info2],
                         api_name="train_extract_f0_feature",
         )
-# Tambahkan kode CSS di luar blok dengan elemen-elemen UI
-app.css("button.primary { background-color: blue; }")
-
 # Lanjutkan dengan menjalankan antarmuka pengguna
 if config.iscolab:
     app.queue(concurrency_count=511, max_size=1022).launch(share=True)
