@@ -67,7 +67,7 @@
     "是否在每次保存时间点将最终小模型保存至weights文件夹": "Save a small final model to the 'weights' folder at each save point:",
     "是否缓存所有训练集至显存. 10min以下小数据可缓存以加速训练, 大数据缓存会炸显存也加不了多少速": "Cache all training sets to GPU memory. Caching small datasets (less than 10 minutes) can speed up training, but caching large datasets will consume a lot of GPU memory and may not provide much speed improvement:",
     "显卡信息": "GPU Information",
-    "本软件以MIT协议开源, 作者不对软件具备任何控制力, 使用软件者、传播软件导出的声音者自负全责. <br>如不认可该条款, 则不能使用或引用软件包内任何代码和文件. 详见根目录<b>LICENSE</b>.": "This software is open source under the MIT license. The author does not have any control over the software. Users who use the software and distribute the sounds exported by the software are solely responsible. <br>If you do not agree with this clause, you cannot use or reference any codes and files within the software package. See the root directory <b>Agreement-LICENSE.txt</b> for details.",
+    "本软件以MIT协议开源, 作者不对软件具备任何控制力, 使用软件者、传播软件导出的声音者自负全责. <br>如不认可该条款, 则不能使用或引用软件包内任何代码和文件. 详见根目录<b>LICENSE</b>.": "AWOKAWOK",
     "查看": "View",
     "查看模型信息(仅支持weights文件夹下提取的小模型文件)": "View model information (only supported for small model files extracted from the 'weights' folder)",
     "检索特征占比": "Search feature ratio (controls accent strength, too high has artifacting):",
