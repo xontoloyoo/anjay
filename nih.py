@@ -30,7 +30,6 @@ import traceback
 import threading
 import shutil
 import logging
-from gradio import Gradio, Theme
 
 logging.getLogger("numba").setLevel(logging.WARNING)
 
@@ -768,7 +767,7 @@ def change_f0_method(f0method8):
         visible = False
     return {"visible": visible, "__type__": "update"}
 
-custom_theme = gr.theme(
+custom_theme = Theme(
     input_background="white",
     input_text="black",
     output_text="black",
