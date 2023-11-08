@@ -768,10 +768,6 @@ def change_f0_method(f0method8):
     return {"visible": visible, "__type__": "update"}
 
 custom_theme = gr.Theme(
-    input_background="white",
-    input_text="black",
-    output_text="black",
-    output_background="white",
     button="blue"
 )
 
