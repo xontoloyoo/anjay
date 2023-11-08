@@ -776,11 +776,10 @@ with gr.Blocks(title="Nih Cuy") as app:
             "本软件以MIT协议开源, 作者不对软件具备任何控制力, 使用软件者、传播软件导出的声音者自负全责. <br>如不认可该条款, 则不能使用或引用软件包内任何代码和文件. 详见根目录<b>LICENSE</b>."
         )
     )
-with gr.TabItem(i18n("训练")):
-            gr.Markdown(
-                value=i18n(
-                    "step1: 填写实验配置. 实验数据放在logs下, 每个实验一个文件夹, 需手工输入实验名路径, 内含实验配置, 日志, 训练得到的模型文件. "
-                )
+    with gr.TabItem(i18n("训练")):
+        gr.Markdown(
+            value=i18n(
+                "step1: 填写实验配置. 实验数据放在logs下, 每个实验一个文件夹, 需手工输入实验名路径, 内含实验配置, 日志, 训练得到的模型文件. "
             )
             with gr.Row():
                 exp_dir1 = gr.Textbox(label=i18n("输入实验名"), value="mi-test")
