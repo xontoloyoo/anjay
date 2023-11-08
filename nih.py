@@ -853,8 +853,8 @@ with gr.Blocks(title="Nih Cuy") as app:
                             label=i18n(
                                 "选择音高提取算法:输入歌声可用pm提速,高质量语音但CPU差可用dio提速,harvest质量更好但慢,rmvpe效果最好且微吃CPU/GPU"
                             ),
-                            choices=["pm", "harvest", "dio", "rmvpe", "rmvpe_gpu"],
-                            value="rmvpe_gpu",
+                            choices=["Harvest","Rmvpe","Rmvpe_Gpu"],
+                            value="Rmvpe_Gpu",
                             interactive=True,
                         )
                         gpus_rmvpe = gr.Textbox(
