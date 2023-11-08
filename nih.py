@@ -766,12 +766,9 @@ def change_f0_method(f0method8):
     else:
         visible = False
     return {"visible": visible, "__type__": "update"}
-
-custom_theme = gr.Theme(
-    button="blue"
 )
 
-with gr.Blocks(title="Nih Cuy", theme=custom_theme) as app:
+with gr.Blocks(title="Nih Cuy") as app:
     gr.Markdown("## GassKeun")
     gr.Markdown(
         value=i18n(
@@ -890,12 +887,17 @@ with gr.Blocks(title="Nih Cuy", theme=custom_theme) as app:
                         [info2],
                         api_name="train_extract_f0_feature",
                     )
-    if config.iscolab:
-        app.queue(concurrency_count=511, max_size=1022).launch(share=True)
-    else:
-        app.queue(concurrency_count=511, max_size=1022).launch(
-            server_name="0.0.0.0",
-            inbrowser=not config.noautoopen,
-            server_port=config.listen_port,
-            quiet=True,
-        )
+    
+# Tambahkan kode CSS di luar blok dengan elemen-elemen UI
+app.css("button.primary { background-color: blue; }")
+
+# Lanjutkan dengan menjalankan antarmuka pengguna
+if config.iscolab:
+    app.queue(concurrency_count=511, max_size=1022).launch(share=True)
+else:
+    app.queue(concurrency_count=511, max_size=1022).launch(
+        server_name="0.0.0.0",
+        inbrowser=not config.noautoopen,
+        server_port=config.listen_port,
+        quiet=True,
+    )
