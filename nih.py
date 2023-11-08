@@ -886,6 +886,8 @@ with gr.Blocks(title="Nih Cuy") as app:
                         [info2],
                         api_name="train_extract_f0_feature",
         )
+# Tambahkan kode CSS di luar blok dengan elemen-elemen UI
+app.css("button.primary { background-color: blue; }")
 
 # Lanjutkan dengan menjalankan antarmuka pengguna
 if config.iscolab:
