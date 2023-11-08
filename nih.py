@@ -768,8 +768,15 @@ def change_f0_method(f0method8):
         visible = False
     return {"visible": visible, "__type__": "update"}
 
+custom_theme = gr.theme(
+    input_background="white",
+    input_text="black",
+    output_text="black",
+    output_background="white",
+    button="blue"
+)
 
-with gr.Blocks(title="Nih Cuy") as app:
+with gr.Blocks(title="Nih Cuy", theme=custom_theme) as app:
     gr.Markdown("## GassKeun")
     gr.Markdown(
         value=i18n(
@@ -855,8 +862,8 @@ with gr.Blocks(title="Nih Cuy") as app:
                             label=i18n(
                                 "选择音高提取算法:输入歌声可用pm提速,高质量语音但CPU差可用dio提速,harvest质量更好但慢,rmvpe效果最好且微吃CPU/GPU"
                             ),
-                            choices=["harvest", "rmvpe", "rmvpe_gpu"],
-                            value="rmvpe_gpu",
+                            choices=["Harvest", "Rmvpe", "Rmvpe_gpu"],
+                            value="Rmvpe_gpu",
                             interactive=True,
                         )
                         gpus_rmvpe = gr.Textbox(
