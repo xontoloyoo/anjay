@@ -811,13 +811,13 @@ with gr.Blocks(title="Nih Cuy") as app:
                     value=int(np.ceil(config.n_cpu / 1.5)),
                     interactive=True,
                 )
-            with gr.Group():  # 暂时单人的, 后面支持最多4人的#数据处理
+        with gr.Group():  # 暂时单人的, 后面支持最多4人的#数据处理
                 gr.Markdown(
                     value=i18n(
                         "step2a: 自动遍历训练文件夹下所有可解码成音频的文件并进行切片归一化, 在实验目录下生成2个wav文件夹; 暂时只支持单人训练. "
                     )
                 )
-            with gr.Row():
+        with gr.Row():
                     trainset_dir4 = gr.Textbox(
                         label=i18n("输入训练文件夹路径"), value="E:\\语音音频+标注\\米津玄师\\src"
                     )
@@ -837,8 +837,8 @@ with gr.Blocks(title="Nih Cuy") as app:
                         [info1],
                         api_name="train_preprocess",
                     )
-            with gr.Group():
-                gr.Markdown(value=i18n("step2b: 使用CPU提取音高(如果模型带音高), 使用GPU提取特征(选择卡号)"))
+        with gr.Group():
+            gr.Markdown(value=i18n("step2b: 使用CPU提取音高(如果模型带音高), 使用GPU提取特征(选择卡号)"))
                 with gr.Row():
                     with gr.Column():
                         gpus6 = gr.Textbox(
@@ -850,8 +850,8 @@ with gr.Blocks(title="Nih Cuy") as app:
                         gpu_info9 = gr.Textbox(
                             label=i18n("显卡信息"), value=gpu_info, visible=F0GPUVisible
                         )
-                    with gr.Column():
-                        f0method8 = gr.Radio(
+        with gr.Column():
+                f0method8 = gr.Radio(
                             label=i18n(
                                 "选择音高提取算法:输入歌声可用pm提速,高质量语音但CPU差可用dio提速,harvest质量更好但慢,rmvpe效果最好且微吃CPU/GPU"
                             ),
@@ -888,8 +888,8 @@ with gr.Blocks(title="Nih Cuy") as app:
                         [info2],
                         api_name="train_extract_f0_feature",
                     )
-            with gr.Group():
-                gr.Markdown(value=i18n("step3: 填写训练设置, 开始训练模型和索引"))
+      with gr.Group():
+            gr.Markdown(value=i18n("step3: 填写训练设置, 开始训练模型和索引"))
                 with gr.Row():
                     save_epoch10 = gr.Slider(
                         minimum=1,
@@ -935,8 +935,8 @@ with gr.Blocks(title="Nih Cuy") as app:
                         value=i18n("否"),
                         interactive=True,
                     )
-                with gr.Row():
-                    pretrained_G14 = gr.Textbox(
+      with gr.Row():
+            pretrained_G14 = gr.Textbox(
                         label=i18n("加载预训练底模G路径"),
                         value="assets/pretrained_v2/f0G40k.pth",
                         interactive=True,
