@@ -766,7 +766,6 @@ def change_f0_method(f0method8):
     else:
         visible = False
     return {"visible": visible, "__type__": "update"}
-)
 
 with gr.Blocks(title="Nih Cuy") as app:
     gr.Markdown("## GassKeun")
