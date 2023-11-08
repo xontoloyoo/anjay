@@ -817,7 +817,7 @@ with gr.Blocks(title="Nih Cuy") as app:
                         "step2a: 自动遍历训练文件夹下所有可解码成音频的文件并进行切片归一化, 在实验目录下生成2个wav文件夹; 暂时只支持单人训练. "
                     )
                 )
-        with gr.Row():
+                with gr.Row():
                     trainset_dir4 = gr.Textbox(
                         label=i18n("输入训练文件夹路径"), value="E:\\语音音频+标注\\米津玄师\\src"
                     )
