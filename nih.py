@@ -839,7 +839,7 @@ with gr.Blocks(title="Nih Cuy") as app:
                     )
         with gr.Group():
             gr.Markdown(value=i18n("step2b: 使用CPU提取音高(如果模型带音高), 使用GPU提取特征(选择卡号)"))
-                with gr.Row():
+                    with gr.Row():
                     with gr.Column():
                         gpus6 = gr.Textbox(
                             label=i18n("以-分隔输入使用的卡号, 例如   0-1-2   使用卡0和卡1和卡2"),
@@ -890,7 +890,7 @@ with gr.Blocks(title="Nih Cuy") as app:
                     )
       with gr.Group():
             gr.Markdown(value=i18n("step3: 填写训练设置, 开始训练模型和索引"))
-                with gr.Row():
+                    with gr.Row():
                     save_epoch10 = gr.Slider(
                         minimum=1,
                         maximum=50,
@@ -935,8 +935,8 @@ with gr.Blocks(title="Nih Cuy") as app:
                         value=i18n("否"),
                         interactive=True,
                     )
-      with gr.Row():
-            pretrained_G14 = gr.Textbox(
+                    with gr.Row():
+                        pretrained_G14 = gr.Textbox(
                         label=i18n("加载预训练底模G路径"),
                         value="assets/pretrained_v2/f0G40k.pth",
                         interactive=True,
