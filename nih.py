@@ -833,7 +833,6 @@ with gr.Blocks(title="Nih Cuy") as app:
                         api_name="train_preprocess",
                     )
         with gr.Group():
-                gr.Markdown(value=i18n("step2b: 使用CPU提取音高(如果模型带音高), 使用GPU提取特征(选择卡号)"))
                 with gr.Row():
                     with gr.Column():
                         gpus6 = gr.Textbox(
@@ -850,8 +849,8 @@ with gr.Blocks(title="Nih Cuy") as app:
                             label=i18n(
                                 "选择音高提取算法:输入歌声可用pm提速,高质量语音但CPU差可用dio提速,harvest质量更好但慢,rmvpe效果最好且微吃CPU/GPU"
                             ),
-                            choices=["Harvest","Rmvpe","Rmvpe_Gpu"],
-                            value="Rmvpe_Gpu",
+                            choices=["Harvest","Rmvpe","Rmvpe_gpu"],
+                            value="Rmvpe_gpu",
                             interactive=True,
                         )
                         gpus_rmvpe = gr.Textbox(
