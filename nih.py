@@ -768,17 +768,17 @@ def change_f0_method(f0method8):
     return {"visible": visible, "__type__": "update"}
 
 with gr.Blocks(title="Nih Cuy") as app:
-    gr.Label('AICoverGen WebUI created with ❤️')
+    gr.Label('Test Training With UI🗿')
     
     with gr.TabItem(i18n("训练")):
         gr.Markdown(
             value=i18n(
-                "step1: 填写实验配置. 实验数据放在logs下, 每个实验一个文件夹, 需手工输入实验名路径, 内含实验配置, 日志, 训练得到的模型文件."
+                "Step1: 填写实验配置. 实验数据放在logs下, 每个实验一个文件夹, 需手工输入实验名路径, 内含实验配置, 日志, 训练得到的模型文件."
             )
         )
 
         with gr.Row():
-            exp_dir1 = gr.Textbox(label=i18n("输入实验名"), value="mi-test")
+            exp_dir1 = gr.Textbox(label=i18n("输入实验名")
             sr2 = gr.Radio(
                     label=i18n("目标采样率"),
                     choices=["40k", "48k"],
