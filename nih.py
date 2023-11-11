@@ -773,7 +773,7 @@ with gr.Blocks(title="Nih Cuy") as app:
     with gr.TabItem(label=""):
         gr.Markdown(
             value=i18n(
-                "Step1: 填写实验配置. 实验数据放在logs下, 每个实验一个文件夹, 需手工输入实验名路径, 内含实验配置, 日志, 训练得到的模型文件."
+                "Step1: Please fill out the experiment configuration. The experimental data is placed under the 'logs' directory, with each experiment in a separate folder. You will need to manually enter the experiment's path, which will contain the experiment configuration, logs, and trained model files."
             )
         )
 
@@ -814,7 +814,7 @@ with gr.Blocks(title="Nih Cuy") as app:
                 )
                 with gr.Row():
                     trainset_dir4 = gr.Textbox(
-                        label=i18n("输入训练文件夹路径"), value="E:\\语音音频+标注\\米津玄师\\src"
+                        label=i18n("输入训练文件夹路径"), value="/content/dataset/ayaka"
                     )
                     spk_id5 = gr.Slider(
                         minimum=0,
