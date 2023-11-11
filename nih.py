@@ -768,7 +768,7 @@ def change_f0_method(f0method8):
     return {"visible": visible, "__type__": "update"}
 
 with gr.Blocks(title="Nih Cuy") as app:
-    gr.Label('AICoverGen WebUI created with ❤️', show_label=True)
+    gr.Label('AICoverGen WebUI created with ❤️')
     
     with gr.TabItem(i18n("训练")):
         gr.Markdown(
