@@ -770,7 +770,7 @@ def change_f0_method(f0method8):
 with gr.Blocks(title="Nih Cuy") as app:
     gr.Label('Test Training With UI🗿')
     
-    with gr.TabItem:
+    with gr.TabItem():
         gr.Markdown(
             value=i18n(
                 "Step1: 填写实验配置. 实验数据放在logs下, 每个实验一个文件夹, 需手工输入实验名路径, 内含实验配置, 日志, 训练得到的模型文件."
