@@ -773,7 +773,7 @@ with gr.Blocks(title="Nih Cuy") as app:
     with gr.TabItem(label=""):
         gr.Markdown(
             value=i18n(
-                "Step1: Please fill out the experiment configuration. The experimental data is placed under the 'logs' directory, with each experiment in a separate folder. You will need to manually enter the experiment's path, which will contain the experiment configuration, logs, and trained model files."
+                "Step 1: Please fill out the experiment configuration. The experimental data is placed under the 'logs' directory, with each experiment in a separate folder. You will need to manually enter the experiment's path, which will contain the experiment configuration, logs, and trained model files."
             )
         )
 
@@ -809,7 +809,7 @@ with gr.Blocks(title="Nih Cuy") as app:
         with gr.Group():  # 暂时单人的, 后面支持最多4人的#数据处理
                 gr.Markdown(
                     value=i18n(
-                        "Step2: 自动遍历训练文件夹下所有可解码成音频的文件并进行切片归一化, 在实验目录下生成2个wav文件夹; 暂时只支持单人训练. "
+                        "Step2: Automatically traverse all files in the training folder that can be decoded into audio and perform slicing and normalization. Generate two 'wav' folders in the experiment directory. Currently, it only supports single-person training."
                     )
                 )
                 with gr.Row():
