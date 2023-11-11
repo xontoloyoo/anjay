@@ -767,7 +767,8 @@ def change_f0_method(f0method8):
         visible = False
     return {"visible": visible, "__type__": "update"}
 
-with gr.Blocks(title="Nih Cuy") as app:
+#with gr.Blocks(title="Nih Cuy") as app:
+with gr.Blocks(theme=gr.themes.Soft(), title="Nih Cuy 💻") as app:
     gr.Label('Test Training With UI🗿')
     
     with gr.TabItem(label=""):
