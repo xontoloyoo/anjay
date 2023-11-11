@@ -809,7 +809,7 @@ with gr.Blocks(title="Nih Cuy") as app:
         with gr.Group():  # 暂时单人的, 后面支持最多4人的#数据处理
                 gr.Markdown(
                     value=i18n(
-                        "step2a: 自动遍历训练文件夹下所有可解码成音频的文件并进行切片归一化, 在实验目录下生成2个wav文件夹; 暂时只支持单人训练. "
+                        "Step2: 自动遍历训练文件夹下所有可解码成音频的文件并进行切片归一化, 在实验目录下生成2个wav文件夹; 暂时只支持单人训练. "
                     )
                 )
                 with gr.Row():
@@ -849,8 +849,8 @@ with gr.Blocks(title="Nih Cuy") as app:
                             label=i18n(
                                 "选择音高提取算法:输入歌声可用pm提速,高质量语音但CPU差可用dio提速,harvest质量更好但慢,rmvpe效果最好且微吃CPU/GPU"
                             ),
-                            choices=["Harvest","Rmvpe","Rmvpe_gpu"],
-                            value="Rmvpe_gpu",
+                            choices=["HARVEST","RMVPE","RMVPE_GPU"],
+                            value="RMVPE_GPU",
                             interactive=True,
                         )
                         gpus_rmvpe = gr.Textbox(
@@ -883,7 +883,7 @@ with gr.Blocks(title="Nih Cuy") as app:
                         api_name="train_extract_f0_feature",
                     )
         with gr.Group():
-                gr.Markdown(value=i18n("step3: 填写训练设置, 开始训练模型和索引"))
+                gr.Markdown(value=i18n("Step3: 填写训练设置, 开始训练模型和索引"))
                 with gr.Row():
                     save_epoch10 = gr.Slider(
                         minimum=1,
@@ -912,7 +912,7 @@ with gr.Blocks(title="Nih Cuy") as app:
                     if_save_latest13 = gr.Radio(
                         label=i18n("是否仅保存最新的ckpt文件以节省硬盘空间"),
                         choices=[i18n("是"), i18n("否")],
-                        value=i18n("否"),
+                        value=i18n("是"),
                         interactive=True,
                     )
                     if_cache_gpu17 = gr.Radio(
