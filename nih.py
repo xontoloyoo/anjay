@@ -809,7 +809,7 @@ with gr.Blocks(title="Nih Cuy") as app:
         with gr.Group():  # 暂时单人的, 后面支持最多4人的#数据处理
                 gr.Markdown(
                     value=i18n(
-                        "Step2: Automatically traverse all files in the training folder that can be decoded into audio and perform slicing and normalization. Generate two 'wav' folders in the experiment directory. Currently, it only supports single-person training."
+                        "Step 2: Automatically traverse all files in the training folder that can be decoded into audio and perform slicing and normalization. Generate two 'wav' folders in the experiment directory. Currently, it only supports single-person training."
                     )
                 )
                 with gr.Row():
