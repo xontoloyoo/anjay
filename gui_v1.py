@@ -872,3 +872,13 @@ if __name__ == "__main__":
             printt("Output device: %s:%s", str(sd.default.device[1]), output_device)
 
     gui = GUI()
+    
+        if config.iscolab:
+        app.queue(concurrency_count=511, max_size=1022).launch(share=True)
+    else:
+        app.queue(concurrency_count=511, max_size=1022).launch(
+            server_name="0.0.0.0",
+            inbrowser=not config.noautoopen,
+            server_port=config.listen_port,
+            quiet=True,
+        )
