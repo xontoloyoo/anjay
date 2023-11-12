@@ -635,9 +635,10 @@ def train_and_evaluate(
             )
         )
         sleep(1)
-        sys.exit(0)
+        os._exit(2333333)
 
 
 if __name__ == "__main__":
     torch.multiprocessing.set_start_method("spawn")
     main()
+exit()
