@@ -635,7 +635,7 @@ def train_and_evaluate(
             )
         )
         sleep(1)
-        os._exit(2333333)
+        sys.exit(0)
 
 
 if __name__ == "__main__":
