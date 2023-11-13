@@ -12,14 +12,14 @@ download_targets = [
     ('D40k.pth', 'assets/pretrained_v2', 'donlot_model'),
     #('D48k.pth', 'assets/pretrained_v2', 'donlot_model'),
     #('G32k.pth', 'assets/pretrained_v2', 'donlot_model'),
-    #('G40k.pth', 'assets/pretrained_v2', 'donlot_model'),
+    ('G40k.pth', 'assets/pretrained_v2', 'donlot_model'),
     #('G48k.pth', 'assets/pretrained_v2', 'donlot_model'),
     
     #('f0D32k.pth', 'assets/pretrained_v2', 'donlot_model'),
     ('f0D40k.pth', 'assets/pretrained_v2', 'donlot_model'),
     #('f0D48k.pth', 'assets/pretrained_v2', 'donlot_model'),
     #('f0G32k.pth', 'assets/pretrained_v2', 'donlot_model'),
-    #('f0G40k.pth', 'assets/pretrained_v2', 'donlot_model'),
+    ('f0G40k.pth', 'assets/pretrained_v2', 'donlot_model'),
     #('f0G48k.pth', 'assets/pretrained_v2', 'donlot_model'),
     ('hubert_base.pt', 'assets/hubert', 'donlot_rh'),
     ('rmvpe.pt', 'assets/rmvpe', 'donlot_rh')
