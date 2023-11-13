@@ -3,7 +3,6 @@ import requests
 
 donlot_model = 'https://huggingface.co/datasets/xontoloyoo/mymodel/resolve/main/Model-Training/'
 donlot_rh = 'https://huggingface.co/datasets/xontoloyoo/mymodel/resolve/main/'
-pisah = 'https://huggingface.co/datasets/xontoloyoo/mymodel/resolve/main/PemisahVocINS/'
 
 BASE_DIR = Path.cwd()
 
@@ -23,12 +22,7 @@ download_targets = [
     ('f0G40k.pth', 'assets/pretrained_v2', 'donlot_model'),
     ('f0G48k.pth', 'assets/pretrained_v2', 'donlot_model'),
     ('hubert_base.pt', 'assets/hubert', 'donlot_rh'),
-    ('rmvpe.pt', 'assets/rmvpe', 'donlot_rh'),
-    ('HP2_all_vocals.pth', 'assets/uvr5_weights', 'pisah'),
-    ('HP3_all_vocals.pth', 'assets/uvr5_weights', 'pisah'),
-    ('HP5_only_main_vocal.pth', 'assets/uvr5_weights', 'pisah'),
-    ('VR-DeEchoDeReverb.pth', 'assets/uvr5_weights', 'pisah'),
-    ('HP5-主旋律人声vocals+其他instrumentals.pth', 'assets/uvr5_weights', 'pisah')
+    ('rmvpe.pt', 'assets/rmvpe', 'donlot_rh')
 ]
 
 # Fungsi untuk mengunduh model ke direktori yang sesuai
