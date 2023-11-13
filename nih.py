@@ -783,9 +783,9 @@ with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
             exp_dir1 = gr.Textbox(label=i18n("输入实验名"), value="ayaka")
             sr2 = gr.Radio(
                     label=i18n("目标采样率"),
-                    choices=["40k", "48k"],
+                    choices=["40k"],
                     value="40k",
-                    interactive=True,
+                    interactive=False,
                 )
             if_f0_3 = gr.Radio(
                     label=i18n("模型是否带音高指导(唱歌一定要, 语音可以不要)"),
@@ -795,9 +795,9 @@ with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
                 )
             version19 = gr.Radio(
                     label=i18n("版本"),
-                    choices=["v1", "v2"],
+                    choices=["v2"],
                     value="v2",
-                    interactive=True,
+                    interactive=False,
                     visible=True,
                 )
             np7 = gr.Slider(
