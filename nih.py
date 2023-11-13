@@ -136,11 +136,6 @@ for root, dirs, files in os.walk(index_root, topdown=False):
     for name in files:
         if name.endswith(".index") and "trained" not in name:
             index_paths.append("%s/%s" % (root, name))
-uvr5_names = []
-for name in os.listdir(weight_uvr5_root):
-    if name.endswith(".pth") or "onnx" in name:
-        uvr5_names.append(name.replace(".pth", ""))
-
 
 def change_choices():
     names = []
