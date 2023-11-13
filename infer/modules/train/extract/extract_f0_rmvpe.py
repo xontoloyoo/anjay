@@ -31,13 +31,13 @@ def printt(strr):
 
 
 class FeatureInput(object):
-    def __init__(self, samplerate=16000, hop_size=160):
+    def __init__(self, samplerate=16000, hop_size=320):
         self.fs = samplerate
         self.hop = hop_size
 
         self.f0_bin = 256
-        self.f0_max = 1100.0
-        self.f0_min = 50.0
+        self.f0_max = 2200.0
+        self.f0_min = 80.0
         self.f0_mel_min = 1127 * np.log(1 + self.f0_min / 700)
         self.f0_mel_max = 1127 * np.log(1 + self.f0_max / 700)
 
