@@ -404,36 +404,21 @@ def get_pretrained_models(path_str, f0_str, sr2):
         else "",
     )
 
-
 def change_sr2(sr2, if_f0_3, version19):
     path_str = "" if version19 == "v1" else "_v2"
     f0_str = "f0" if if_f0_3 else ""
     return get_pretrained_models(path_str, f0_str, sr2)
 
-
 def change_version19(sr2, if_f0_3, version19):
     path_str = "" if version19 == "v1" else "_v2"
-    if sr2 == "32k" and version19 == "v1":
-        sr2 = "40k"
-    to_return_sr2 = (
-        {"choices": ["40k", "48k"], "__type__": "update", "value": sr2}
-        if version19 == "v1"
-        else {"choices": ["40k", "48k", "32k"], "__type__": "update", "value": sr2}
-    )
+    to_return_sr2 = {"choices": ["40k"], "__type__": "update", "value": "40k"}
     f0_str = "f0" if if_f0_3 else ""
-    return (
-        *get_pretrained_models(path_str, f0_str, sr2),
-        to_return_sr2,
-    )
+    return (*get_pretrained_models(path_str, f0_str, "40k"), to_return_sr2)
 
-
-def change_f0(if_f0_3, sr2, version19):  # f0method8,pretrained_G14,pretrained_D15
+def change_f0(if_f0_3, sr2, version19):
     path_str = "" if version19 == "v1" else "_v2"
-    return (
-        {"visible": if_f0_3, "__type__": "update"},
-        {"visible": if_f0_3, "__type__": "update"},
-        *get_pretrained_models(path_str, "f0" if if_f0_3 == True else "", sr2),
-    )
+    return ({"visible": if_f0_3, "__type__": "update"}, {"visible": if_f0_3, "__type__": "update"}, *get_pretrained_models(path_str, "f0" if if_f0_3 == True else "", "40k"))
+
 
 
 # but3.click(click_train,[exp_dir1,sr2,if_f0_3,save_epoch10,total_epoch11,batch_size12,if_save_latest13,pretrained_G14,pretrained_D15,gpus16])
