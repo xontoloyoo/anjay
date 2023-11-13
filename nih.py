@@ -772,7 +772,7 @@ with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
                 )
             version19 = gr.Radio(
                     label=i18n("版本"),
-                    choices=["v2"],
+                    choices=["v2", "v1"],
                     value="v2",
                     interactive=True,
                     visible=True,
