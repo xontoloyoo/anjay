@@ -776,7 +776,7 @@ with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
             sr2 = gr.Radio(
                     label=i18n("目标采样率"),
                     choices=["40k"],
-                    value="40k",
+                    value="",
                     interactive=True,
                 )
             if_f0_3 = gr.Radio(
@@ -788,7 +788,7 @@ with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
             version19 = gr.Radio(
                     label=i18n("版本"),
                     choices=["v2"],
-                    value="v2",
+                    value="",
                     interactive=True,
                     visible=True,
                 )
