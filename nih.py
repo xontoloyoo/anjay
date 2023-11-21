@@ -841,7 +841,7 @@ with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
                             visible=F0GPUVisible,
                         )
                     but2 = gr.Button(i18n("特征提取"), variant="primary")
-                    info2 = gr.Textbox(label=i18n("输出信息"), value="", max_lines=8)
+                    info2 = gr.Textbox(label=i18n("输出信息"), value="", max_lines=10)
                     f0method8.change(
                         fn=change_f0_method,
                         inputs=[f0method8],
