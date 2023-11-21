@@ -908,7 +908,8 @@ with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
                         value=i18n("否"),
                         interactive=True,
                     )
-                with gr.Column():
+        with gr.Column():
+                with gr.Row():
                     pretrained_G14 = gr.Textbox(
                         label=i18n("加载预训练底模G路径"),
                         value="assets/pretrained_v2/f0G40k.pth",
