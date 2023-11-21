@@ -412,7 +412,7 @@ def change_sr2(sr2, if_f0_3, version19):
 
 def change_version19(sr2, if_f0_3, version19):
     path_str = "" if version19 == "v1" else "_v2"
-    to_return_sr2 = {"choices": ["40k"], "__type__": "update", "value": "40k"}
+    to_return_sr2 = {"choices": ["40k"], "__type__": "update", "value": ""}
     f0_str = "f0" if if_f0_3 else ""
     return (*get_pretrained_models(path_str, f0_str, "40k"), to_return_sr2)
 
@@ -914,8 +914,7 @@ with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
                         label=i18n("加载预训练底模G路径"),
                         value="assets/pretrained_v2/f0G40k.pth",
                         interactive=True,
-                    )
-                with gr.Group():    
+                    )    
                     pretrained_D15 = gr.Textbox(
                         label=i18n("加载预训练底模D路径"),
                         value="assets/pretrained_v2/f0D40k.pth",
@@ -942,8 +941,8 @@ with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
                         interactive=True,
                     )
         with gr.Row():
-            but3 = gr.Button(i18n("训练模型"), variant="primary")
             but4 = gr.Button(i18n("训练特征索引"), variant="primary")
+            but3 = gr.Button(i18n("训练模型"), variant="primary")
             info3 = gr.Textbox(label=i18n("输出信息"), value="", max_lines=10)
 
             but3.click(
