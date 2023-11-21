@@ -939,7 +939,7 @@ with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
                         value=gpus,
                         interactive=True,
                     )
-                    with gr.Row():
+        with gr.Row():
             but3 = gr.Button(i18n("训练模型"), variant="primary")
             but4 = gr.Button(i18n("训练特征索引"), variant="primary")
             info3 = gr.Textbox(label=i18n("输出信息"), value="", max_lines=10)
