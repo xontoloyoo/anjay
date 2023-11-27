@@ -122,7 +122,7 @@ else:
                 with torch.no_grad():
                     logits = model.extract_features(**inputs)
                     feats = (
-                        model.final_proj(logits[0]) if version == "v1" else logits[0]
+                        model.final_proj(logits) if version == "v1" else logits
                     )
 
                 feats = feats.squeeze(0).float().cpu().numpy()
