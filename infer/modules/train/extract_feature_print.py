@@ -125,7 +125,7 @@ else:
                         model.final_proj(logits) if version == "v1" else logits
                     )
 
-                feats = feats.squeeze(0).float().cpu().numpy()
+                feats = feats['feats'].squeeze(0).float().cpu().numpy()
                 if np.isnan(feats).sum() == 0:
                     np.save(out_path, feats, allow_pickle=False)
                 else:
