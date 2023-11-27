@@ -121,6 +121,7 @@ else:
                 }
                 with torch.no_grad():
                     logits = model.extract_features(**inputs)
+                    print(logits)
                     feats = (
                         model.final_proj(logits) if version == "v1" else logits
                     )
