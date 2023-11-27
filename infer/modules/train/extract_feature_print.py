@@ -121,12 +121,12 @@ else:
                 }
                 with torch.no_grad():
                     logits = model.extract_features(**inputs)
-                    print(logits)
+                    #print(logits)
                     feats = (
                         model.final_proj(logits) if version == "v1" else logits
                     )
 
-                feats = feats['feats'].squeeze(0).float().cpu().numpy()
+                feats = logits['encoder_out'].squeeze(0).float().cpu().numpy()
                 if np.isnan(feats).sum() == 0:
                     np.save(out_path, feats, allow_pickle=False)
                 else:
