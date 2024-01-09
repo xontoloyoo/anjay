@@ -747,12 +747,23 @@ def change_f0_method(f0method8):
 
 #with gr.Blocks(title="Nih Cuy") as app:
 with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
-    gr.Label('Test Training With UI🗿')
+    gr.HTML(
+        """
+        <div style="display: flex; justify-content: center; align-items: center; text-align: center;">
+        </a>
+        <div>
+            <h1 >Test Training With UI🗿</h1>
+            <h5 style="margin: 0;">Masih Test Ygy, Kemungkinan Banyak Error🗿</h5>
+            <div style="display: flex; justify-content: center; align-items: center; text-align: center;>
+            </div>
+        </div>
+        </div>
+        """)
     
-    with gr.TabItem(label=""):
+    with gr.Tab("Step 1"):
         gr.Markdown(
             value=i18n(
-                "Step 1: Please fill out the experiment configuration. The experimental data is placed under the 'logs' directory, with each experiment in a separate folder. You will need to manually enter the experiment's path, which will contain the experiment configuration, logs, and trained model files."
+                "Please fill out the experiment configuration. The experimental data is placed under the 'logs' directory, with each experiment in a separate folder. You will need to manually enter the experiment's path, which will contain the experiment configuration, logs, and trained model files."
             )
         )
 
@@ -785,10 +796,10 @@ with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
                     value=int(np.ceil(config.n_cpu / 1.5)),
                     interactive=True,
                 )
-        with gr.Group():  # 暂时单人的, 后面支持最多4人的#数据处理
+        with gr.Tab("Step 2"):
                 gr.Markdown(
                     value=i18n(
-                        "Step 2: Automatically traverse all files in the training folder that can be decoded into audio and perform slicing and normalization. Generate two 'wav' folders in the experiment directory. Currently, it only supports single-person training."
+                        "Automatically traverse all files in the training folder that can be decoded into audio and perform slicing and normalization. Generate two 'wav' folders in the experiment directory. Currently, it only supports single-person training."
                     )
                 )
                 with gr.Row():
@@ -811,7 +822,6 @@ with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
                         [info1],
                         api_name="train_preprocess",
                     )
-        with gr.Group():
                 with gr.Row():
                     with gr.Column():
                         gpus6 = gr.Textbox(
@@ -861,112 +871,110 @@ with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
                         [info2],
                         api_name="train_extract_f0_feature",
                     )
-        with gr.Group():
-                gr.Markdown(value=i18n("Step3: 填写训练设置, 开始训练模型和索引"))
-                with gr.Row():
-                    save_epoch10 = gr.Slider(
-                        minimum=1,
-                        maximum=50,
-                        step=1,
-                        label=i18n("保存频率save_every_epoch"),
-                        value=5,
-                        interactive=True,
-                    )
-                    total_epoch11 = gr.Slider(
-                        minimum=2,
-                        maximum=1000,
-                        step=1,
-                        label=i18n("总训练轮数total_epoch"),
-                        value=20,
-                        interactive=True,
-                    )
-                    batch_size12 = gr.Slider(
-                        minimum=1,
-                        maximum=40,
-                        step=1,
-                        label=i18n("每张显卡的batch_size"),
-                        value=default_batch_size,
-                        interactive=True,
-                    )
-                    if_save_latest13 = gr.Radio(
-                        label=i18n("是否仅保存最新的ckpt文件以节省硬盘空间"),
-                        choices=[i18n("是"), i18n("否")],
-                        value=i18n("是"),
-                        interactive=True,
-                    )
-                    if_cache_gpu17 = gr.Radio(
-                        label=i18n(
-                            "是否缓存所有训练集至显存. 10min以下小数据可缓存以加速训练, 大数据缓存会炸显存也加不了多少速"
-                        ),
-                        choices=[i18n("是"), i18n("否")],
-                        value=i18n("否"),
-                        interactive=True,
-                    )
-                    if_save_every_weights18 = gr.Radio(
-                        label=i18n("是否在每次保存时间点将最终小模型保存至weights文件夹"),
-                        choices=[i18n("是"), i18n("否")],
-                        value=i18n("否"),
-                        interactive=True,
-                    )
-        with gr.Group():
-                with gr.Row():
-                    pretrained_G14 = gr.Textbox(
-                        label=i18n("加载预训练底模G路径"),
-                        value="assets/pretrained_v2/f0G40k.pth",
-                        interactive=True,
-                    )    
-                    pretrained_D15 = gr.Textbox(
-                        label=i18n("加载预训练底模D路径"),
-                        value="assets/pretrained_v2/f0D40k.pth",
-                        interactive=True,
-                    )
-                    sr2.change(
-                        change_sr2,
-                        [sr2, if_f0_3, version19],
-                        [pretrained_G14, pretrained_D15],
-                    )
-                    version19.change(
-                        change_version19,
-                        [sr2, if_f0_3, version19],
-                        [pretrained_G14, pretrained_D15, sr2],
-                    )
-                    if_f0_3.change(
-                        change_f0,
-                        [if_f0_3, sr2, version19],
-                        [f0method8, gpus_rmvpe, pretrained_G14, pretrained_D15],
-                    )
-                    gpus16 = gr.Textbox(
-                        label=i18n("以-分隔输入使用的卡号, 例如   0-1-2   使用卡0和卡1和卡2"),
-                        value=gpus,
-                        interactive=True,
-                    )
-        with gr.Row():
-            but4 = gr.Button(i18n("训练特征索引"), variant="primary")
-            but3 = gr.Button(i18n("训练模型"), variant="primary")
-            info3 = gr.Textbox(label=i18n("输出信息"), value="", max_lines=3)
+                    with gr.Tab("Step 3"):
+                            gr.Markdown(value=i18n("Fill in the training settings, start training the model and indexing."))
+                            with gr.Row():
+                                save_epoch10 = gr.Slider(
+                                    minimum=1,
+                                    maximum=50,
+                                    step=1,
+                                    label=i18n("保存频率save_every_epoch"),
+                                    value=5,
+                                    interactive=True,
+                                    )
+                                total_epoch11 = gr.Slider(
+                                    minimum=2,
+                                    maximum=1000,
+                                    step=1,
+                                    label=i18n("总训练轮数total_epoch"),
+                                    value=20,
+                                    interactive=True,
+                                    )
+                                batch_size12 = gr.Slider(
+                                    minimum=1,
+                                    maximum=40,
+                                    step=1,
+                                    label=i18n("每张显卡的batch_size"),
+                                    value=default_batch_size,
+                                    interactive=True,
+                                    )
+                                if_save_latest13 = gr.Radio(
+                                    label=i18n("是否仅保存最新的ckpt文件以节省硬盘空间"),
+                                    choices=[i18n("是"), i18n("否")],
+                                    value=i18n("是"),
+                                    interactive=True,
+                                    )
+                                if_cache_gpu17 = gr.Radio(
+                                label=i18n(
+                                    "是否缓存所有训练集至显存. 10min以下小数据可缓存以加速训练, 大数据缓存会炸显存也加不了多少速"
+                                ),
+                                    choices=[i18n("是"), i18n("否")],
+                                    value=i18n("否"),
+                                    interactive=True,
+                                    )
+                                if_save_every_weights18 = gr.Radio(
+                                    label=i18n("是否在每次保存时间点将最终小模型保存至weights文件夹"),
+                                    choices=[i18n("是"), i18n("否")],
+                                    value=i18n("否"),
+                                    interactive=True,
+                                    )    
+                            with gr.Row():      
+                                pretrained_G14 = gr.Textbox(
+                                    label=i18n("加载预训练底模G路径"),
+                                    value="assets/pretrained_v2/f0G40k.pth",
+                                    interactive=True,
+                                    )
+                                pretrained_D15 = gr.Textbox(
+                                    label=i18n("加载预训练底模D路径"),
+                                    value="assets/pretrained_v2/f0D40k.pth",
+                                    interactive=True,
+                                    )
+                                sr2.change(
+                                    change_sr2,
+                                    [sr2, if_f0_3, version19],
+                                    [pretrained_G14, pretrained_D15],
+                                    )
+                                version19.change(
+                                    change_version19,
+                                    [sr2, if_f0_3, version19],
+                                    [pretrained_G14, pretrained_D15, sr2],
+                                    ) 
+                                if_f0_3.change(
+                                    change_f0,
+                                    [if_f0_3, sr2, version19],
+                                    [f0method8, gpus_rmvpe, pretrained_G14, pretrained_D15],
+                                    ) 
+                                gpus16 = gr.Textbox(
+                                    label=i18n("以-分隔输入使用的卡号, 例如   0-1-2   使用卡0和卡1和卡2"),
+                                    value=gpus,
+                                    interactive=True,
+                                    )       
+                            with gr.Row():
+                                but4 = gr.Button(i18n("训练特征索引"), variant="primary")
+                                but3 = gr.Button(i18n("训练模型"), variant="primary")
+                                info3 = gr.Textbox(label=i18n("输出信息"), value="", max_lines=3)
 
-            but3.click(
-                click_train,
-                [
-                    exp_dir1,
-                    sr2,
-                    if_f0_3,
-                    spk_id5,
-                    save_epoch10,
-                    total_epoch11,
-                    batch_size12,
-                    if_save_latest13,
-                    pretrained_G14,
-                    pretrained_D15,
-                    gpus16,
-                    if_cache_gpu17,
-                    if_save_every_weights18,
-                    version19,
-                ],
-                info3,
-                api_name="train_start",
-            )
+                                but3.click(
+                                    click_train,
+                                    [
+                                        exp_dir1,
+                                        sr2,
+                                        if_f0_3,
+                                        spk_id5,
+                                        save_epoch10,
+                                        total_epoch11,
+                                        batch_size12,
+                                        if_save_latest13,
+                                        pretrained_G14,
+                                        pretrained_D15,
+                                        gpus16,
+                                        if_cache_gpu17,
+                                        if_save_every_weights18,
+                                        version19,
+                                    ],
+                                    info3,
+                                    api_name="train_start",
+                                    )
 
-            but4.click(train_index, [exp_dir1, version19], info3)            
-# Lanjutkan dengan menjalankan antarmuka pengguna
+                                but4.click(train_index, [exp_dir1, version19], info3)
 app.launch(share=True)
