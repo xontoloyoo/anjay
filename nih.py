@@ -804,7 +804,7 @@ with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
                         interactive=True,
                     )
                     but1 = gr.Button(i18n("处理数据"), variant="primary")
-                    info1 = gr.Textbox(label=i18n("输出信息"), value="")
+                    info1 = gr.Textbox(label=i18n("输出信息"), value="", max_lines=3)
                     but1.click(
                         preprocess_dataset,
                         [trainset_dir4, exp_dir1, sr2, np7],
@@ -943,7 +943,7 @@ with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
         with gr.Row():
             but4 = gr.Button(i18n("训练特征索引"), variant="primary")
             but3 = gr.Button(i18n("训练模型"), variant="primary")
-            info3 = gr.Textbox(label=i18n("输出信息"), value="", max_lines=10)
+            info3 = gr.Textbox(label=i18n("输出信息"), value="", max_lines=3)
 
             but3.click(
                 click_train,
@@ -969,12 +969,4 @@ with gr.Blocks(theme='sudeepshouche/minimalist', title="Nih Cuy") as app:
 
             but4.click(train_index, [exp_dir1, version19], info3)            
 # Lanjutkan dengan menjalankan antarmuka pengguna
-if config.iscolab:
-    app.queue(concurrency_count=511, max_size=1022).launch(share=True)
-else:
-    app.queue(concurrency_count=511, max_size=1022).launch(
-        server_name="0.0.0.0",
-        inbrowser=not config.noautoopen,
-        server_port=config.listen_port,
-        quiet=True,
-    )
+app.launch(share=True)
